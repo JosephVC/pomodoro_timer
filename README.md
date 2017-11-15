@@ -2,7 +2,7 @@
 
 This project exists because I've been needing a simple Pomodoro timer, and this need coincides with my need to simplify and refocus my portfolio.
 
-INITIAL FEATURES
+Initial Features
 ----------------
 
 - Pomodoro timer, running in 25 minute intervals
