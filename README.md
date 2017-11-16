@@ -10,3 +10,15 @@ Initial Features
 - Five minute break timer
 
 - Option to alter the transparency of the window, and allow the timer to rest up in the corner of a screen 
+
+
+Desired Features
+----------------
+
+- Give the user options for setting their own Pomodoro time
+
+- Give the user the option to upload their own timer's "done" sound
+
+- Allow the collapsed timer window to still display the countdown
+
+- Add text editor to enter tasks to be timed/completed
