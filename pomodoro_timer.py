@@ -9,44 +9,38 @@ want it to remain visible in the corner of your screen.
 """
 from tkinter import *
 from tkinter import ttk
+import threading
+import time
 
-# Set the root of the project
+# create the basic elements
 root = Tk()
 root.title("Pomodoro Timer")
 
+entry_box = Entry(root)
+entry_box.pack()
 
-# Define the widgets and, for now, pack them in to the display
-
-time = ttk.Entry(root).pack()
-start_button = Entry(root).pack()
-status = ttk.Label(root).pack()
-
-# Grid the widgets
-# TODO -- everything is .pack()-d in, per the above.
-#         This works well enough for now, but as the app expands, widgets will
-#         need to be well-gridded.
+# this is how I ensure what is entered for an argument in the countdown function
+# is an integer that can be worked with
 
 
-# create the countdown timer
-# if a number is entered in the time box and the user hits the start_button,
-# then the timer should visibly count down
-# the timer should be an entry box that allows the user to enter their time
-# in turn, the time they enter should be passed below to the timer logic
-# so, the time ttk.Entry above should actually be the time, with the logic
-# working with whatever the user enters
+display_box = ttk.Label(root, text="I'm a display box!")
+display_box.pack()
+
+# create a countdown functionality
 def countdown():
     def _inner():
-        countdown_from = int(time.get())
+        countdown_from = int(entry_box.get())
         while countdown_from > 0:
-            status.configure(text=countdown_from)
+            display_box.configure(text=countdown_from)
             time.sleep(1)
             countdown_from -= 1
             if countdown_from <= 0:
-                display_box.configure(text="Time's Up.")
+                display_box.configure(text="done")
     thread = threading.Thread(target=_inner)
     thread.start()
 
-countdown_button = Button(root, text="countdown", command=countdown).pack()
+countdown_button = ttk.Button(root, text="countdown", command=countdown)
+countdown_button.pack()
 
-# run mainloop
+# run the program
 root.mainloop()
